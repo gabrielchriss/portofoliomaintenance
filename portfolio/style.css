@@ -1,0 +1,561 @@
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a192f;
+  color: white;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 80px 0;
+}
+
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+.glass {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  margin: 40px 20px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(10,25,47,0.6);
+}
+
+.nav-hover {
+  position: relative;
+  transition: .3s;
+}
+
+.nav-hover:hover,
+.nav-link.active {
+  color: #42a5f5 !important;
+  text-shadow: 0 0 12px #42a5f5;
+}
+
+.nav-hover::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #42a5f5;
+  left: 0;
+  bottom: -5px;
+  transition: .3s;
+}
+
+.nav-hover:hover::after {
+  width: 100%;
+}
+
+
+.hero {
+  height: 100vh;
+}
+
+.glow-text {
+  color: #42a5f5;
+  text-shadow: 0 0 15px #42a5f5;
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 20px #42a5f5;
+}
+
+
+.profile-flip {
+  perspective: 1000px;
+  width: 260px;
+  height: 260px;
+  margin: auto;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.profile-flip:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.profile-img {
+  width: 260px;
+  border-radius: 50%;
+  box-shadow: 0 0 40px #42a5f5;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-15px); }
+}
+
+
+#intro {
+  position: fixed;
+  width:100%;
+  height:100%;
+  background:#0a192f;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  text-align:center;
+}
+
+.intro-title {
+  font-size: 3rem;
+  color:#42a5f5;
+  text-shadow:0 0 25px #42a5f5;
+  animation: zoomIn 1.5s ease;
+}
+
+.github {
+  opacity:0.7;
+  letter-spacing:2px;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(.5); opacity:0; }
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about-text {
+  line-height:1.9;
+  font-size:1.1rem;
+  max-width: 750px;
+  margin: auto;
+}
+
+/* =========================
+   SKILLS RADIAL
+========================= */
+.radial {
+  width:140px;
+  height:140px;
+  transform: rotate(-90deg);
+  margin-bottom: 15px;
+}
+
+.radial circle {
+  fill:none;
+  stroke-width:10;
+  stroke:#1e3a5f;
+}
+
+.radial .progress {
+  stroke:#42a5f5;
+  stroke-dasharray:377;
+  stroke-dashoffset:377;
+}
+
+/* =========================
+   TECH STACK ICONS
+========================= */
+.tech-icons i {
+  font-size: 45px;
+  margin: 15px;
+  color: #42a5f5;
+  transition: .4s;
+}
+
+.tech-icons i:hover {
+  transform: translateY(-10px) scale(1.2);
+  text-shadow: 0 0 20px #42a5f5;
+}
+
+/* =========================
+   PROJECT CARDS
+========================= */
+.project-card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  transition: .4s;
+  transform-style: preserve-3d;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 30px #42a5f5;
+  transform: translateY(-10px) scale(1.05);
+}
+
+.icon {
+  font-size: 40px;
+  color: #42a5f5;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+.social a {
+  font-size: 30px;
+  margin: 10px;
+  color: white;
+  transition: .4s;
+}
+
+.social a:hover {
+  color:#42a5f5;
+  text-shadow:0 0 20px #42a5f5;
+}
+
+/* =========================
+   SCROLL TO TOP BUTTON
+========================= */
+#toTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #42a5f5;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: .4s;
+  box-shadow: 0 0 15px #42a5f5;
+}
+
+#toTop:hover {
+  transform: scale(1.15);
+}
+
+/* =========================
+   CURSOR GLOW
+========================= */
+.cursor-glow{
+  position:fixed;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  background:rgba(66,165,245,0.4);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  filter:blur(10px);
+  z-index:999;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+@media(max-width:768px){
+
+  .hero {
+    text-align:center;
+    height:auto;
+    padding-top:120px;
+  }
+
+  .profile-img {
+    width:200px;
+  }
+
+  .profile-flip {
+    width:200px;
+    height:200px;
+  }
+
+  .intro-title {
+    font-size:2rem;
+  }
+
+  .glass {
+    margin:20px 10px;
+    padding:25px;
+  }
+}
+
+/* =========================
+   DONATE / SUPPORT
+========================= */
+.donate-card{
+  background: rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:20px;
+  transition:.4s;
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.donate-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 30px #42a5f5;
+}
+
+.qris-img{
+  width:180px;
+  border-radius:15px;
+  padding:10px;
+  background:rgba(255,255,255,0.05);
+  border:2px solid rgba(66,165,245,0.5);
+  box-shadow:0 0 20px rgba(66,165,245,0.6);
+  transition:.4s;
+}
+
+.qris-img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 35px #42a5f5;
+}
+
+.donate-icon{
+  font-size:55px;
+  color:#42a5f5;
+  text-shadow:0 0 15px #42a5f5;
+}
+
+/* =========================
+   EDUCATION TIMELINE
+========================= */
+.timeline{
+  position:relative;
+  margin-top:40px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:4px;
+  height:100%;
+  background:#42a5f5;
+  box-shadow:0 0 15px #42a5f5;
+  transform:translateX(-50%);
+}
+
+.timeline-item{
+  display:flex;
+  align-items:center;
+  margin:40px 0;
+}
+
+.timeline-item:nth-child(even){
+  flex-direction:row-reverse;
+}
+
+.timeline-icon{
+  width:60px;
+  height:60px;
+  background:#42a5f5;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:24px;
+  color:white;
+  box-shadow:0 0 15px #42a5f5;
+  z-index:1;
+}
+
+.timeline-content{
+  background: rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  width:45%;
+  margin:0 20px;
+  transition:.4s;
+}
+
+.timeline-content:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 20px #42a5f5;
+}
+
+.timeline-content span{
+  opacity:.7;
+  font-size:14px;
+}
+/* =========================
+   MOBILE FIX TIMELINE & SUPPORT
+========================= */
+@media(max-width:768px){
+
+  .timeline::before{
+    left:25px;
+  }
+
+  .timeline-item{
+    flex-direction:row !important;
+    justify-content:flex-start;
+    margin-left:10px;
+  }
+
+  .timeline-content{
+    width:100%;
+    margin-left:15px;
+  }
+
+  .timeline-icon{
+    width:50px;
+    height:50px;
+    font-size:18px;
+  }
+
+  .donate-card{
+    width:100%;
+    max-width:260px;
+  }
+
+  .qris-img{
+    width:130px;
+  }
+
+}
+/* =========================
+   MOBILE PERFECT LAYOUT FIX
+========================= */
+@media(max-width:768px){
+
+  body{
+    text-align:center;
+  }
+
+  section{
+    padding:60px 15px;
+  }
+
+  /* NAVBAR */
+  .navbar-brand{
+    font-size:20px;
+  }
+
+  .navbar{
+    padding:10px 0;
+  }
+
+  /* HERO */
+  .hero{
+    height:auto;
+    padding-top:120px;
+  }
+
+  .hero h1{
+    font-size:26px;
+  }
+
+  .hero h3{
+    font-size:18px;
+  }
+
+  /* PROFILE IMAGE */
+  .profile-flip{
+    width:180px;
+    height:180px;
+    margin-top:30px;
+  }
+
+  .profile-img{
+    width:180px;
+  }
+
+  /* ABOUT TEXT */
+  .about-text{
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  /* SKILLS */
+  .radial{
+    width:110px;
+    height:110px;
+  }
+
+  #skills p{
+    font-size:14px;
+  }
+
+  /* TECH ICONS */
+  .tech-icons i{
+    font-size:32px;
+    margin:10px;
+  }
+
+  /* PROJECT CARDS */
+  .project-card{
+    margin-bottom:25px;
+  }
+
+  /* TIMELINE EDUCATION */
+  .timeline::before{
+    left:20px;
+  }
+
+  .timeline-item{
+    flex-direction:row !important;
+    align-items:flex-start;
+    margin:30px 0;
+  }
+
+  .timeline-icon{
+    width:45px;
+    height:45px;
+    font-size:18px;
+    margin-top:5px;
+  }
+
+  .timeline-content{
+    width:100%;
+    margin-left:15px;
+    text-align:left;
+  }
+
+  /* SUPPORT / DONATE */
+  .donate-card{
+    margin:auto;
+    margin-bottom:25px;
+    max-width:260px;
+  }
+
+  .qris-img{
+    width:130px;
+  }
+
+  /* CONTACT SOCIAL */
+  .social a{
+    font-size:24px;
+    margin:8px;
+  }
+
+  /* SCROLL TOP BUTTON */
+  #toTop{
+    bottom:20px;
+    right:20px;
+    padding:10px 13px;
+  }
+
+}
+
